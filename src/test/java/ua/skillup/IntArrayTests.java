@@ -21,22 +21,39 @@ public class IntArrayTests {
         fillArrayWithNumbers(array, true);
     }
 
+    private boolean arraysEqual(int [] array1, int [] array2) {
+        if (array1.length != array2.length) {
+            return false;
+        }
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] != array2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean arraysEqual(IntArray arr1, IntArray arr2) {
+        return arraysEqual(arr1.getArray(), arr2.getArray());
+    }
+
+
     @Test
     public void testArrayCreation() {
         IntArray array = new IntArray(10);
         int[] actual = array.getArray();
         int[] expected = new int[10];
-        assertEquals(actual, expected);
+        assertTrue(arraysEqual(actual, expected));
     }
 
     @Test
     public void testFillWithNumbers() {
         IntArray array = new IntArray(10);
         array.fillWithNumbers();
-        int[] beforeFilling = array.getArray();
+        IntArray arrayCopy = array.copy();
+
         array.fillWithNumbers();
-        int[] afterFilling = array.getArray();
-        assertNotEquals(afterFilling, beforeFilling);
+        assertFalse(arraysEqual(array, arrayCopy));
     }
 
     @Test
@@ -83,7 +100,7 @@ public class IntArrayTests {
     public void testSum() {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray());
-        assertEquals(array.min(), 15);
+        assertEquals(array.sum(), 15);
     }
 
     @Test
@@ -110,7 +127,7 @@ public class IntArrayTests {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray());
         array.reverse();
-        assertEquals(array.getArray(), new int[]{5, 4, 3, 2, 1});
+        assertTrue(arraysEqual(array.getArray(), new int[]{5, 4, 3, 2, 1}));
     }
 
     @Test
@@ -118,7 +135,7 @@ public class IntArrayTests {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray());
         IntArray copy = array.copy();
-        assertEquals(copy.getArray(), array.getArray());
+        assertTrue(arraysEqual(copy.getArray(), array.getArray()));
     }
 
     @Test
@@ -145,7 +162,7 @@ public class IntArrayTests {
         }
 
         array.removeDuplicates();
-        assertEquals(array.getArray(), new int[]{1, 2, 3, 4, 5});
+        assertTrue(arraysEqual(array.getArray(), new int[]{1, 2, 3, 4, 5}));
     }
 
     @Test
@@ -209,7 +226,7 @@ public class IntArrayTests {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray(), false);
         array.sort(true);
-        assertEquals(array.getArray(), new int[]{1, 2, 3, 4, 5});
+        assertTrue(arraysEqual(array.getArray(), new int[]{1, 2, 3, 4, 5}));
     }
 
     @Test
@@ -217,14 +234,14 @@ public class IntArrayTests {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray(), true);
         array.sort(false);
-        assertEquals(array.getArray(), new int[]{5, 4, 3, 2, 1});
+        assertTrue(arraysEqual(array.getArray(), new int[]{5, 4, 3, 2, 1}));
     }
 
     @Test
     public void testSortForEmptyArray() {
         IntArray array = new IntArray(0);
         array.sort(true);
-        assertEquals(array.getArray(), new int[]{});
+        assertTrue(arraysEqual(array.getArray(), new int[]{}));
     }
 
     @Test
@@ -232,7 +249,7 @@ public class IntArrayTests {
         IntArray array = new IntArray(1);
         fillArrayWithNumbers(array.getArray());
         array.sort(true);
-        assertEquals(array.getArray(), new int[]{1});
+        assertTrue(arraysEqual(array.getArray(), new int[]{1}));
     }
 
     @Test
@@ -242,7 +259,7 @@ public class IntArrayTests {
         IntArray array2 = new IntArray(5);
         fillArrayWithNumbers(array2.getArray(), false);
         array1.append(array2);
-        assertEquals(array1.getArray(), new int[]{1, 2, 3, 4, 5, 5, 4, 3, 2, 1});
+        assertTrue(arraysEqual(array1.getArray(), new int[]{1, 2, 3, 4, 5, 5, 4, 3, 2, 1}));
     }
 
     @Test
@@ -250,7 +267,7 @@ public class IntArrayTests {
         IntArray array1 = new IntArray(0);
         IntArray array2 = new IntArray(0);
         array1.append(array2);
-        assertEquals(array1.getArray(), new int[]{});
+        assertTrue(arraysEqual(array1.getArray(), new int[]{}));
     }
 
     @Test
@@ -278,21 +295,21 @@ public class IntArrayTests {
     public void testBinarySearchDescMiddleVal() {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray(), false);
-        assertEquals(array.binarySearch(3, true), 2);
+        assertEquals(array.binarySearch(3, false), 2);
     }
 
     @Test
     public void testBinarySearchDescLeftVal() {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray(), false);
-        assertEquals(array.binarySearch(5, true), 0);
+        assertEquals(array.binarySearch(5, false), 0);
     }
 
     @Test
     public void testBinarySearchDescRightVal() {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray(), false);
-        assertEquals(array.binarySearch(1, true), 4);
+        assertEquals(array.binarySearch(1, false), 4);
     }
 
     @Test
