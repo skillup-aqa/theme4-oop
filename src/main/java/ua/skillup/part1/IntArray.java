@@ -7,6 +7,10 @@ public class IntArray {
         // TODO: Implement constructor here
     }
 
+    public int[] getArray() {
+        return this.array;
+    }
+
     public void fillWithNumbers() {
         // TODO: Implement solution here
     }
@@ -59,7 +63,7 @@ public class IntArray {
         return false;
     }
 
-    public void merge(IntArray arr2) {
+    public void append(IntArray arr2) {
         // TODO: Implement solution here
     }
 

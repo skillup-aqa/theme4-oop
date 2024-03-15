@@ -1,7 +1,7 @@
 package ua.skillup.part1;
 
 public class ComplexNumber {
-    ComplexNumber(double real, double imaginary) {
+    public ComplexNumber(double real, double imaginary) {
         // TODO: Implement constructor here
     }
 
@@ -55,8 +55,4 @@ public class ComplexNumber {
         return null;
     }
 
-    public ComplexNumber exponentialOf() {
-        // TODO: Implement constructor here
-        return null;
-    }
 }
