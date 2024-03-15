@@ -230,12 +230,29 @@ public class IntArrayTests {
     }
 
     @Test
+    public void testSortSorted() {
+        IntArray array = new IntArray(5);
+        fillArrayWithNumbers(array.getArray(), true);
+        array.sort(true);
+        assertTrue(arraysEqual(array.getArray(), new int[]{1, 2, 3, 4, 5}));
+    }
+
+    @Test
     public void testSortDesc() {
         IntArray array = new IntArray(5);
         fillArrayWithNumbers(array.getArray(), true);
         array.sort(false);
         assertTrue(arraysEqual(array.getArray(), new int[]{5, 4, 3, 2, 1}));
     }
+
+    @Test
+    public void testSortSortedDesc() {
+        IntArray array = new IntArray(5);
+        fillArrayWithNumbers(array.getArray(), false);
+        array.sort(false);
+        assertTrue(arraysEqual(array.getArray(), new int[]{5, 4, 3, 2, 1}));
+    }
+
 
     @Test
     public void testSortForEmptyArray() {
@@ -251,6 +268,7 @@ public class IntArrayTests {
         array.sort(true);
         assertTrue(arraysEqual(array.getArray(), new int[]{1}));
     }
+
 
     @Test
     public void testAppend() {
