@@ -1,14 +1,13 @@
 package ua.skillup.part1;
 
 public class IntArray {
-    private int[] array;
-
     public IntArray(int size) {
         // TODO: Implement constructor here
     }
 
     public int[] getArray() {
-        return this.array;
+        // TODO: Implement solution here
+        return null;
     }
 
     public void fillWithNumbers() {
