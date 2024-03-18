@@ -1,10 +1,8 @@
-package ua.skillup;
+package ua.skillup.part1;
 
 import org.testng.annotations.Test;
-import ua.skillup.part1.IntArray;
 
 import static org.testng.Assert.*;
-import static org.testng.Assert.assertFalse;
 
 public class IntArrayTests {
     private void fillArrayWithNumbers(int[] array, boolean ascending) {

@@ -1,7 +1,6 @@
-package ua.skillup;
+package ua.skillup.part1;
 
 import org.testng.annotations.Test;
-import ua.skillup.part1.ComplexNumber;
 
 public class ComplexNumberTests {
     @Test
