@@ -1,14 +1,13 @@
 package ua.skillup.part1;
 
 public class IntArray {
-    private int[] array;
-
     public IntArray(int size) {
         this.array = new int[size];
     }
 
     public int[] getArray() {
-        return this.array;
+        // TODO: Implement solution here
+        return null;
     }
 
     private void swap(int i, int j) {
