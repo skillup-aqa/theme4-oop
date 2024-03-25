@@ -1,8 +1,10 @@
 package ua.skillup.part1;
 
 public class IntArray {
+    private int[] arrayForClass;
+
     public IntArray(int size) {
-        // TODO: Implement constructor here
+         arrayForClass = new int[size];
     }
 
     public int[] getArray() {
@@ -11,17 +13,37 @@ public class IntArray {
     }
 
     public void fillWithNumbers() {
-        // TODO: Implement solution here
+        for (int i = 0; i < this.arrayForClass.length; i++) {
+            this.arrayForClass[i] = (int) (Math.random() * 1000);
+            System.out.println("Array index is: " + i);
+            System.out.println(this.arrayForClass[i]);
+        }
     }
 
     public int max() {
-        // TODO: Implement solution here
-        return -1;
+        if (arrayForClass.length == 0) {
+            return 0;
+        }
+        int max = arrayForClass[0];
+        for (int i = 0; i < arrayForClass.length; i++) {
+            if (arrayForClass[i] > max) {
+                max = arrayForClass[i];
+            }
+        }
+        return max;
     }
 
     public int min() {
-        // TODO: Implement solution here
-        return -1;
+        if (arrayForClass.length == 0) {
+            return 0;
+        }
+        int min = arrayForClass[0];
+        for (int j : arrayForClass) {
+            if (j < min) {
+                min = j;
+            }
+        }
+        return min;
     }
 
 
