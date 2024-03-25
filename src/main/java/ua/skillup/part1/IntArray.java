@@ -2,15 +2,20 @@ package ua.skillup.part1;
 
 public class IntArray {
     private int[] arrayForClass;
+    private int[] reversedArray;
 
     public IntArray(int size) {
-         arrayForClass = new int[size];
+        arrayForClass = new int[size];
     }
 
     public int[] getArray() {
-        // TODO: Implement solution here
-        return null;
+        return arrayForClass;
     }
+
+    public int[] getReversedArrayArray() {
+        return reversedArray;
+    }
+
 
     public void fillWithNumbers() {
         for (int i = 0; i < this.arrayForClass.length; i++) {
@@ -48,17 +53,25 @@ public class IntArray {
 
 
     public int sum() {
-        // TODO: Implement solution here
-        return -1;
+        int sum = 0;
+        for (int currentArrayValue : arrayForClass) {
+            sum += currentArrayValue;
+        }
+        return sum;
     }
 
     public int avg() {
-        // TODO: Implement solution here
-        return -1;
+        if (arrayForClass.length == 0) {
+            return 0;
+        }
+        return sum() / arrayForClass.length;
     }
 
     public void reverse() {
-        // TODO: Implement solution here
+        reversedArray = new int[arrayForClass.length];
+        for (int i = 0; i < arrayForClass.length; i++) {
+            reversedArray[arrayForClass.length - 1 - i] = arrayForClass[i];
+        }
     }
 
     public IntArray copy() {
@@ -76,7 +89,7 @@ public class IntArray {
     }
 
     public void sort(boolean ascending) {
-        // TODO: Implement solution here
+
     }
 
     public boolean isSorted(boolean ascending) {
