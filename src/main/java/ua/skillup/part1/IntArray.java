@@ -5,14 +5,14 @@ public class IntArray {
     private int[] reversedArray;
 
     public IntArray(int size) {
-        arrayForClass = new int[size];
+        this.arrayForClass = new int[size];
     }
 
     public int[] getArray() {
-        return arrayForClass;
+        return this.arrayForClass;
     }
 
-    public int[] getReversedArrayArray() {
+    public int[] getReversedArray() {
         return reversedArray;
     }
 
@@ -75,17 +75,37 @@ public class IntArray {
     }
 
     public IntArray copy() {
-        // TODO: Implement solution here
-        return null;
+        IntArray copiedArray = new IntArray(arrayForClass.length);
+        for (int i = 0; i < arrayForClass.length; i++) {
+            copiedArray.getArray()[i] = arrayForClass[i];
+        }
+        return copiedArray;
     }
 
     public int indexOf(int value) {
-        // TODO: Implement solution here
+        for (int i = 0; i < arrayForClass.length; i++) {
+            if (arrayForClass[i] == value) {
+                return i;
+            }
+        }
         return -1;
     }
 
     public void removeDuplicates() {
-        // TODO: Implement solution here
+        IntArray withNoDuplicates = new IntArray(arrayForClass.length);
+        int newArrayLength = 0;
+        for (int currentArrayValue : arrayForClass) {
+            if (withNoDuplicates.indexOf(currentArrayValue) == -1) {
+                withNoDuplicates.getArray()[newArrayLength] = currentArrayValue;
+                newArrayLength++;
+            }
+
+        }
+        int[] removedDuplicatesArray = new int[newArrayLength];
+        for (int i = 0; i < newArrayLength; i++) {
+            removedDuplicatesArray[i] = withNoDuplicates.getArray()[i];
+        }
+        arrayForClass = removedDuplicatesArray;
     }
 
     public void sort(boolean ascending) {
