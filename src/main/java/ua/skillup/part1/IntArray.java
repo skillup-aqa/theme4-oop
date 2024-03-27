@@ -108,17 +108,60 @@ public class IntArray {
         arrayForClass = removedDuplicatesArray;
     }
 
-    public void sort(boolean ascending) {
+    public void swap(int i, int j) {
+        int temp = arrayForClass[i];
+        arrayForClass[i] = arrayForClass[j];
+        arrayForClass[j] = temp;
+    }
 
+    public void sort(boolean ascending) {
+        for (int i = 0; i < arrayForClass.length; i++) {
+            for (int j = i + 1; j < arrayForClass.length; j++) {
+                if (ascending) {
+                    if (arrayForClass[i] > arrayForClass[j]) {
+                        swap(i, j);
+                    }
+                } else {
+                    if (arrayForClass[i] < arrayForClass[j]) {
+                        swap(i, j);
+                    }
+                }
+            }
+        }
     }
 
     public boolean isSorted(boolean ascending) {
-        // TODO: Implement solution here
-        return false;
+        if (arrayForClass.length < 2) {
+            return true;
+        }
+
+        for (int i = 0; i < arrayForClass.length - 1; i++) {
+            if (ascending) {
+                if (arrayForClass[i] > arrayForClass[i + 1]) {
+                    return false;
+                }
+            } else {
+                if (arrayForClass[i] < arrayForClass[i + 1]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public void append(IntArray arr2) {
-        // TODO: Implement solution here
+        int lengthOfMergedArray = arrayForClass.length + arr2.getArray().length;
+        int[] mergedArray = new int[lengthOfMergedArray];
+        int array1Length = arrayForClass.length;
+        for (int i = 0; i < array1Length; i++) {
+            mergedArray[i] = arrayForClass[i];
+        }
+
+        for (int n = 0; n < arr2.getArray().length; n++) {
+            mergedArray[array1Length + n] = arr2.getArray()[n];
+        }
+        arrayForClass = mergedArray;
     }
 
     public int binarySearch(int value, boolean ascending) {
