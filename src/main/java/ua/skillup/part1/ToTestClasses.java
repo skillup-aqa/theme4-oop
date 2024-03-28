@@ -4,6 +4,7 @@ public class ToTestClasses {
     public static void main(String[] args) {
         IntArray array = new IntArray(10);
         IntArray arrayToCopy;
+        IntArray sortedArrayAsc;
         int testValue;
 
 
@@ -15,7 +16,7 @@ public class ToTestClasses {
 
         System.out.println("Reversed array is: ");
         array.reverse();
-        for (int currentArrayValue : array.getReversedArray()) {
+        for (int currentArrayValue : array.getArray()) {
             System.out.print(currentArrayValue + " ");
         }
         System.out.println();
@@ -53,5 +54,17 @@ public class ToTestClasses {
         for (int currentArrayValue : array.getArray()) {
             System.out.print(currentArrayValue + " ");
         }
+        array.sort(false);
+        array.removeDuplicates();
+        System.out.println("Sorted array for binary Search: \n");
+        for (int currentArrayValue : array.getArray()) {
+            System.out.print(currentArrayValue + " ");
+        }
+
+        testValue = array.getArray()[3];
+
+        System.out.print("Test value: " + testValue + "\n");
+        System.out.print("Binary search position: " + array.binarySearch(testValue, false) + "\n");
+        System.out.print("Binary search position: " + array.binarySearch(2000, false) + "\n");
     }
 }

@@ -12,11 +12,6 @@ public class IntArray {
         return this.arrayForClass;
     }
 
-    public int[] getReversedArray() {
-        return reversedArray;
-    }
-
-
     public void fillWithNumbers() {
         for (int i = 0; i < this.arrayForClass.length; i++) {
             this.arrayForClass[i] = (int) (Math.random() * 1000);
@@ -72,6 +67,7 @@ public class IntArray {
         for (int i = 0; i < arrayForClass.length; i++) {
             reversedArray[arrayForClass.length - 1 - i] = arrayForClass[i];
         }
+        arrayForClass = reversedArray;
     }
 
     public IntArray copy() {
@@ -165,7 +161,31 @@ public class IntArray {
     }
 
     public int binarySearch(int value, boolean ascending) {
-        // TODO: Implement solution here
+        int low = 0;
+        int high = arrayForClass.length - 1;
+        int mid;
+        if (!isSorted(ascending)) return -1;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if (arrayForClass[mid] == value) {
+                return mid;
+            } else {
+                if (ascending) {
+                    if (arrayForClass[mid] < value) {
+                        low = mid + 1;
+                    } else {
+                        high = mid - 1;
+                    }
+
+                } else {
+                    if (arrayForClass[mid] < value) {
+                        high = mid - 1;
+                    } else {
+                        low = mid + 1;
+                    }
+                }
+            }
+        }
         return -1;
     }
 }
