@@ -66,5 +66,40 @@ public class ToTestClasses {
         System.out.print("Test value: " + testValue + "\n");
         System.out.print("Binary search position: " + array.binarySearch(testValue, false) + "\n");
         System.out.print("Binary search position: " + array.binarySearch(2000, false) + "\n");
+        System.out.println();
+        //---------------------------------------------------------------
+        System.out.println("TESTING COMPLEX NUMBER \n");
+        ComplexNumber number1 = new ComplexNumber(4, 7);
+        ComplexNumber tempNumber;
+        System.out.println("The complex number is " + number1.getReal() + " + " + number1.getImaginary() + "i\n");
+        System.out.println("abs value of this number is: " + number1.abs() + "\n");
+
+        tempNumber = number1.add(new ComplexNumber(5, 6));
+        System.out.println("Sum of complex numbers is: " + tempNumber.getReal() + " + "
+                + tempNumber.getImaginary() + "i\n");
+
+        tempNumber = number1.subtract(new ComplexNumber(6, 9));
+        System.out.println("Subtract of complex numbers is: " + tempNumber.getReal() + " + "
+                + tempNumber.getImaginary() + "i\n");
+
+        tempNumber = number1.multiply(new ComplexNumber(4, 5));
+        System.out.println("Multiply complexes number is: " + tempNumber.getReal() + " + "
+                + tempNumber.getImaginary() + "i\n");
+
+        tempNumber = number1.multiply(9);
+        System.out.println("Multiply complex number on number is: " + +tempNumber.getReal()
+                + " + " + tempNumber.getImaginary() + "i\n");
+
+        tempNumber = number1.divide(new ComplexNumber(3,5));
+        System.out.println("Divide complexes number is: " + tempNumber.getReal() + " + "
+                + tempNumber.getImaginary() + "i\n");
+
+        tempNumber = number1.divide(2);
+        System.out.println("Divide complex number on number is: " + tempNumber.getReal() + " + "
+                + tempNumber.getImaginary() + "i\n");
+
+        tempNumber = number1.conjugate();
+        System.out.println("Conjugate complex number is: " + tempNumber.getReal() + " + "
+                + tempNumber.getImaginary() + "i\n");
     }
 }
