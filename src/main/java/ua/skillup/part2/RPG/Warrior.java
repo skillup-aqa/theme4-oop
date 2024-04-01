@@ -1,14 +1,10 @@
 package ua.skillup.part2.RPG;
 
-public class Warrior extends Unit{
+final public class Warrior extends Unit{
 
 
     public Warrior() {
-        setPower();
+        setPower("Warrior", 100, 20);
     }
-    @Override
-    void setPower() {
-        this.healthPower = 100;
-        this.kickPower = 20;
-    }
+
 }
