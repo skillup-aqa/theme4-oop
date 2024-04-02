@@ -8,6 +8,8 @@ abstract public class Unit {
     protected int healthPower;
     protected int kickPower;
 
+    protected static int counter = 3;
+
     public void setPower(String name, int health, int kick) {
         this.unitName = name;
         this.healthPower = health;
@@ -18,11 +20,22 @@ abstract public class Unit {
         this.isPoisoned = poisoned;
     }
 
+    public void magicianMadeKick() {
+        counter = 0;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void magicianAddCounter() {
+        counter += 1;
+    }
+
     public void display() {
-        System.out.println("Unit: " + unitName + "\n");
-        System.out.println("HP: " + healthPower + "\n");
-        System.out.println("KP: " + kickPower + "\n");
-        System.out.println("Is poisoned: " + isPoisoned + "\n");
+        System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower + " Is poisoned: "
+                + isPoisoned + " Counter: " + counter + "\n");
+
     }
 
     final public void changeHealth(int minus) {
