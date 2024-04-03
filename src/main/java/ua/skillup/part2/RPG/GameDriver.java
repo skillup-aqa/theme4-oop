@@ -31,14 +31,19 @@ public class GameDriver {
         if (magician.getCounter() > 2) {
             magician.kickPower = 80;
         }
+        do {
+            randomSoldier = arrayOfSoldiers[(int) (Math.random() * 3)];
+            if (!randomSoldier.isDead()) {
+                break;
+            }
 
-        randomSoldier = arrayOfSoldiers[(int) (Math.random() * 3)];
+        } while (2>1);
 
         kick(kicker, ork);
         kick(ork, randomSoldier);
-        ork.display();
+        //ork.display();
         randomSoldier.display();
-        kicker.display();
+        //kicker.display();
 
 
     }
