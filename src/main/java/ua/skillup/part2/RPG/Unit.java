@@ -42,12 +42,12 @@ abstract public class Unit {
         this.healthPower -= minus;
     }
 
-   final public boolean isDead() {
-        if (this.healthPower<1) {
+    final public boolean isDead() {
+        if (this.healthPower < 1) {
             return true;
         }
         return false;
-   }
+    }
 }
 
 

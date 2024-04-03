@@ -1,6 +1,5 @@
 package ua.skillup.part2.RPG;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class GameDriver {
@@ -15,11 +14,11 @@ public class GameDriver {
 
     public void selectSoldier() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println((warrior.isDead()?"":("Choose: Warrior 'w' has " + warrior.kickPower + " kick power, ")) +
-                (magician.isDead()?"":("Magician 'm' has " + magician.kickPower + " kick power, ")) +
-                (archer.isDead()?"":("Archer 'a' has " + archer.kickPower + " kick power.")));
+        System.out.println((warrior.isDead() ? "" : ("Choose: Warrior 'w' has " + warrior.kickPower + " kick power, ")) +
+                (magician.isDead() ? "" : ("Magician 'm' has " + magician.kickPower + " kick power, ")) +
+                (archer.isDead() ? "" : ("Archer 'a' has " + archer.kickPower + " kick power.")));
         char selected = scanner.next().charAt(0);
-        if (!warrior.isDead() && (selected == 'w' || selected == 'W') ) {
+        if (!warrior.isDead() && (selected == 'w' || selected == 'W')) {
             this.kicker = warrior;
         } else if (!magician.isDead() && (selected == 'm' || selected == 'M')) {
             this.kicker = magician;
@@ -29,7 +28,6 @@ public class GameDriver {
             selectSoldier();
         }
     }
-
 
 
     public static void kick(Unit kicker, Unit kicked) {

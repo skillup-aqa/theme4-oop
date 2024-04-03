@@ -1,7 +1,5 @@
 package ua.skillup.part2.RPG;
 
-import java.util.Scanner;
-
 public class Game {
 
     public static void main(String[] args) {
