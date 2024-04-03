@@ -1,13 +1,36 @@
 package ua.skillup.part2.RPG;
 
-public class GameDriver {
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
+public class GameDriver {
     Unit randomSoldier;
+
+    Unit kicker;
     Warrior warrior = new Warrior();
     Archer archer = new Archer();
     Magician magician = new Magician();
     Ork ork = new Ork();
     Unit[] arrayOfSoldiers = {warrior, archer, magician};
+
+    public void selectSoldier() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println((warrior.isDead()?"":("Choose: Warrior 'w' has " + warrior.kickPower + " kick power, ")) +
+                (magician.isDead()?"":("Magician 'm' has " + magician.kickPower + " kick power, ")) +
+                (archer.isDead()?"":("Archer 'a' has " + archer.kickPower + " kick power.")));
+        char selected = scanner.next().charAt(0);
+        if (!warrior.isDead() && (selected == 'w' || selected == 'W') ) {
+            this.kicker = warrior;
+        } else if (!magician.isDead() && (selected == 'm' || selected == 'M')) {
+            this.kicker = magician;
+        } else if (!archer.isDead() && (selected == 'a' || selected == 'A')) {
+            this.kicker = archer;
+        } else {
+            selectSoldier();
+        }
+    }
+
+
 
     public static void kick(Unit kicker, Unit kicked) {
         int minusHealth = kicker.kickPower;
@@ -26,7 +49,8 @@ public class GameDriver {
         }
     }
 
-    public void round(Unit kicker) {
+    public void round() {
+        selectSoldier();
         magician.magicianAddCounter();
         if (magician.getCounter() > 2) {
             magician.kickPower = 80;
@@ -37,14 +61,16 @@ public class GameDriver {
                 break;
             }
 
-        } while (2>1);
+        } while (2 > 1);
+
 
         kick(kicker, ork);
         kick(ork, randomSoldier);
         //ork.display();
+        System.out.println(kicker.unitName + " kicks Ork");
+        System.out.println("Ork kicks " + randomSoldier.unitName);
+        ork.display();
         randomSoldier.display();
-        //kicker.display();
-
 
     }
 }
