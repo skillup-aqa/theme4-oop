@@ -31,7 +31,9 @@ public class GameDriver {
         if (magician.getCounter() > 2) {
             magician.kickPower = 80;
         }
+
         randomSoldier = arrayOfSoldiers[(int) (Math.random() * 3)];
+
         kick(kicker, ork);
         kick(ork, randomSoldier);
         ork.display();

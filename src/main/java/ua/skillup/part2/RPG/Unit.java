@@ -42,7 +42,12 @@ abstract public class Unit {
         this.healthPower -= minus;
     }
 
-    final public void changeKick(int plus) {
-        this.kickPower += plus;
-    }
+   final public boolean isDead() {
+        if (this.healthPower<1) {
+            return true;
+        }
+        return false;
+   }
 }
+
+
