@@ -33,9 +33,7 @@ abstract public class Unit {
     }
 
     public void display() {
-        System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower + " Is poisoned: "
-                + isPoisoned + " Counter: " + counter);
-
+        System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower);
     }
 
     final public void changeHealth(int minus) {

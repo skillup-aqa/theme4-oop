@@ -6,4 +6,8 @@ final public class Magician extends Unit {
         setPower("Magician", 50, 80);
     }
 
+    @Override
+    public void display() {
+        System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower + " Counter: " + counter);
+    }
 }
