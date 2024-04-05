@@ -61,7 +61,6 @@ public class GameDriver {
 
         } while (2 > 1);
 
-
         kick(kicker, ork);
         if (ork.healthPower > 0) {
             kick(ork, randomSoldier);
