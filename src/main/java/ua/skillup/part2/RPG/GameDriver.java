@@ -63,13 +63,17 @@ public class GameDriver {
 
 
         kick(kicker, ork);
-        kick(ork, randomSoldier);
-        //ork.display();
+        if (ork.healthPower > 0) {
+            kick(ork, randomSoldier);
+        }
         System.out.println(kicker.unitName + " kicks Ork");
-        System.out.println("Ork kicks " + randomSoldier.unitName);
+        if (ork.healthPower > 0) {
+            System.out.println("Ork kicks " + randomSoldier.unitName);
+        }
         ork.display();
-        randomSoldier.display();
-
+        if (ork.healthPower > 0) {
+            randomSoldier.display();
+        }
     }
 }
 
