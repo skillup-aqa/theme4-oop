@@ -2,7 +2,6 @@ package ua.skillup.part1;
 
 public class IntArray {
     private int[] arrayForClass;
-    private int[] reversedArray;
 
     public IntArray(int size) {
         this.arrayForClass = new int[size];
@@ -63,7 +62,8 @@ public class IntArray {
     }
 
     public void reverse() {
-        reversedArray = new int[arrayForClass.length];
+        int[] reversedArray = new int[arrayForClass.length];
+        // reversedArray = new int[arrayForClass.length];
         for (int i = 0; i < arrayForClass.length; i++) {
             reversedArray[arrayForClass.length - 1 - i] = arrayForClass[i];
         }

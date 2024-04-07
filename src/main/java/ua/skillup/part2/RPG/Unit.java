@@ -10,11 +10,12 @@ abstract public class Unit {
 
     protected static int counter = 3;
 
-    public void setPower(String name, int health, int kick) {
-        this.unitName = name;
-        this.healthPower = health;
-        this.kickPower = kick;
+    public Unit(String unitName, int healthPower, int kickPower) {
+        this.unitName = unitName;
+        this.healthPower = healthPower;
+        this.kickPower = kickPower;
     }
+
 
     public void setPoisoned(boolean poisoned) {
         this.isPoisoned = poisoned;

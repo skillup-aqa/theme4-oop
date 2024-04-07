@@ -56,6 +56,7 @@ public class ToTestClasses {
         }
         array.sort(false);
         array.removeDuplicates();
+        System.out.println();
         System.out.println("Sorted array for binary Search: \n");
         for (int currentArrayValue : array.getArray()) {
             System.out.print(currentArrayValue + " ");
@@ -90,7 +91,7 @@ public class ToTestClasses {
         System.out.println("Multiply complex number on number is: " + +tempNumber.getReal()
                 + " + " + tempNumber.getImaginary() + "i\n");
 
-        tempNumber = number1.divide(new ComplexNumber(3,5));
+        tempNumber = number1.divide(new ComplexNumber(3, 5));
         System.out.println("Divide complexes number is: " + tempNumber.getReal() + " + "
                 + tempNumber.getImaginary() + "i\n");
 

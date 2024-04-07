@@ -24,6 +24,8 @@ public class GameDriver {
             this.kicker = magician;
         } else if (!archer.isDead() && (selected == 'a' || selected == 'A')) {
             this.kicker = archer;
+        } else if (warrior.isDead() && magician.isDead() && archer.isDead()) {
+            System.out.println("Wou lose");
         } else {
             selectSoldier();
         }
@@ -33,7 +35,6 @@ public class GameDriver {
     public static void kick(Unit kicker, Unit kicked) {
         int minusHealth = kicker.kickPower;
         if (kicked.isPoisoned && kicked.unitName.equals("Ork")) {
-            //the case when archer is used three times in a row is not considered
             minusHealth = kicker.kickPower + kicker.kickPower / 2;
             kicked.setPoisoned(false);
         }
@@ -59,7 +60,7 @@ public class GameDriver {
                 break;
             }
 
-        } while (2 > 1);
+        } while (true);
 
         kick(kicker, ork);
         if (ork.healthPower > 0) {
@@ -72,6 +73,24 @@ public class GameDriver {
         ork.display();
         if (ork.healthPower > 0) {
             randomSoldier.display();
+        }
+    }
+
+    public static void main(String[] args) {
+        GameDriver game = new GameDriver();
+        while (true) {
+            if (game.ork.isDead()) {
+                System.out.println("You WIN!!!");
+                break;
+
+            } else if (game.magician.isDead() && game.warrior.isDead() && game.archer.isDead()) {
+
+                System.out.println("You Lose");
+                break;
+            } else {
+
+                game.round();
+            }
         }
     }
 }
