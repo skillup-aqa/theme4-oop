@@ -1,6 +1,6 @@
-package ua.skillup.part2;
+package ua.skillup.part2.Shape;
 
-public class Rectangle extends Figure {
+public class Rectangle extends Shape {
     final protected double a;
     final protected double b;
 

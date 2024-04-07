@@ -1,6 +1,6 @@
-package ua.skillup.part2;
+package ua.skillup.part2.Shape;
 
-public class Square extends Figure {
+public class Square extends Shape {
     final protected double a;
 
     public Square(double a) {

@@ -1,6 +1,6 @@
-package ua.skillup.part2;
+package ua.skillup.part2.Shape;
 
-public class Circle extends Figure {
+public class Circle extends Shape {
     final protected double radius;
 
     public Circle(double radius) {

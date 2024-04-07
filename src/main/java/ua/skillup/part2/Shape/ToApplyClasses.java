@@ -1,9 +1,9 @@
-package ua.skillup.part2;
+package ua.skillup.part2.Shape;
 
 public class ToApplyClasses {
 
-    public static void printInfo(String nameOfFigure, Figure a) {
-        System.out.println("This is a " + nameOfFigure + "\n");
+    public static void printInfo(String nameOfShape, Shape a) {
+        System.out.println("This is a " + nameOfShape + "\n");
         System.out.println("Area is: " + a.area() + "\n");
         System.out.println("Perimeter is: " + a.perimeter() + "\n");
     }
