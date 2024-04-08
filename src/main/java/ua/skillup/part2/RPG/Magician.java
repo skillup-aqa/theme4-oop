@@ -19,7 +19,9 @@ final public class Magician extends Unit {
     }
 
     public void magicianAddCounter() {
-        counter += 1;
+        if (counter < 4) {
+            counter += 1;
+        }
         if (counter > 2) {
             kickPower = 80;
         }
