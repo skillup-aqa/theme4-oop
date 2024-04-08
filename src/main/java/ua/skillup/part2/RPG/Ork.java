@@ -10,8 +10,7 @@ final public class Ork extends Unit implements Poisoned {
 
     @Override
     public void display() {
-        System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower + " Is poisoned: "
-                + isPoisoned);
+        System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower + " Is poisoned: " + isPoisoned);
     }
 
     @Override

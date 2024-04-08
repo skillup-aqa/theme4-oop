@@ -18,7 +18,7 @@ public class GameDriver {
         Scanner scanner = new Scanner(System.in);
         System.out.println((warrior.isDead() ? "" : ("Choose: Warrior 'w' has " + warrior.kickPower + " kick power, ")) +
                 (magician.isDead() ? "" : ("Magician 'm' has " + magician.kickPower + " kick power, ")) +
-                (archer.isDead() ? "" : ("Archer 'a' has " + archer.kickPower + " kick power. 'q' to quit")));
+                (archer.isDead() ? "" : ("Archer 'a' has " + archer.kickPower + " kick power.")) +  "'q' to quit");
         char selected = scanner.next().charAt(0);
         if (!warrior.isDead() && (selected == 'w' || selected == 'W')) {
             this.kicker = warrior;
@@ -29,7 +29,7 @@ public class GameDriver {
         } else if (selected == 'q' || selected == 'Q') {
             isQuit = true;
         } else if (warrior.isDead() && magician.isDead() && archer.isDead()) {
-            System.out.println("Wou lose");
+            System.out.println("You lose");
         } else {
             selectSoldier();
         }
@@ -60,25 +60,28 @@ public class GameDriver {
         selectSoldier();
         if (!isQuit) {
             magician.magicianAddCounter();
-            do {
-                randomSoldier = arrayOfSoldiers[(int) (Math.random() * 3)];
-                if (!randomSoldier.isDead()) {
-                    break;
+
+            if (!(arrayOfSoldiers[0].isDead() && arrayOfSoldiers[1].isDead() && arrayOfSoldiers[2].isDead())) {
+
+                for (int i = 0; i < 500; i++) {
+                    randomSoldier = arrayOfSoldiers[(int) (Math.random() * 3)];
+                    if (!randomSoldier.isDead()) {
+                        break;
+                    }
                 }
 
-            } while (true);
-
-            kickOrk(kicker, ork);
-            if (ork.healthPower > 0) {
-                kickSoldier(ork, randomSoldier);
-            }
-            System.out.println(kicker.unitName + " kicks Ork");
-            if (ork.healthPower > 0) {
-                System.out.println("Ork kicks " + randomSoldier.unitName);
-            }
-            ork.display();
-            if (ork.healthPower > 0) {
-                randomSoldier.display();
+                kickOrk(kicker, ork);
+                if (ork.healthPower > 0) {
+                    kickSoldier(ork, randomSoldier);
+                }
+                System.out.println(kicker.unitName + " kicks Ork");
+                if (ork.healthPower > 0) {
+                    System.out.println("Ork kicks " + randomSoldier.unitName);
+                }
+                ork.display();
+                if (ork.healthPower > 0) {
+                    randomSoldier.display();
+                }
             }
         }
     }
