@@ -18,7 +18,7 @@ public class GameDriver {
         Scanner scanner = new Scanner(System.in);
         System.out.println((warrior.isDead() ? "" : ("Choose: Warrior 'w' has " + warrior.kickPower + " kick power, ")) +
                 (magician.isDead() ? "" : ("Magician 'm' has " + magician.kickPower + " kick power, ")) +
-                (archer.isDead() ? "" : ("Archer 'a' has " + archer.kickPower + " kick power.")) +  "'q' to quit");
+                (archer.isDead() ? "" : ("Archer 'a' has " + archer.kickPower + " kick power.")) + "'q' to quit");
         char selected = scanner.next().charAt(0);
         if (!warrior.isDead() && (selected == 'w' || selected == 'W')) {
             this.kicker = warrior;
