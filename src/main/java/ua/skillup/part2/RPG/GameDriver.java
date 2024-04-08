@@ -32,7 +32,7 @@ public class GameDriver {
     }
 
 
-    public static void kick(Unit kicker, Unit kicked) {
+    public void kickOrk(Unit kicker, Ork kicked) {
         int minusHealth = kicker.kickPower;
         if (kicked.isPoisoned && kicked.unitName.equals("Ork")) {
             minusHealth = kicker.kickPower + kicker.kickPower / 2;
@@ -43,17 +43,18 @@ public class GameDriver {
             kicked.setPoisoned(true);
         }
         if (kicker.unitName.equals("Magician")) {
-            kicker.magicianMadeKick();
-            kicker.kickPower = 0;
+            magician.magicianMadeKick();
         }
+    }
+
+    public void kickSoldier(Ork kicker, Unit kicked) {
+        int minusHealth = kicker.kickPower;
+        kicked.changeHealth(minusHealth);
     }
 
     public void round() {
         selectSoldier();
         magician.magicianAddCounter();
-        if (magician.getCounter() > 2) {
-            magician.kickPower = 80;
-        }
         do {
             randomSoldier = arrayOfSoldiers[(int) (Math.random() * 3)];
             if (!randomSoldier.isDead()) {
@@ -62,9 +63,9 @@ public class GameDriver {
 
         } while (true);
 
-        kick(kicker, ork);
+        kickOrk(kicker, ork);
         if (ork.healthPower > 0) {
-            kick(ork, randomSoldier);
+            kickSoldier(ork, randomSoldier);
         }
         System.out.println(kicker.unitName + " kicks Ork");
         if (ork.healthPower > 0) {
