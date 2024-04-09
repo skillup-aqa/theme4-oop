@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class GameDriver {
 
+
     private boolean isQuit = false;
     Unit randomSoldier;
 
