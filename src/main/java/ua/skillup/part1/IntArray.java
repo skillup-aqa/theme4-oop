@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class IntArray {
     private int[] arrayForThisClass;
+    private int[] reversedArray;
 
     public IntArray(int size) {
         this.arrayForThisClass = new int[size];
@@ -11,6 +12,10 @@ public class IntArray {
 
     public int[] getArray() {
         return this.arrayForThisClass;
+    }
+
+    public int[] getReversedToThisArray() {
+        return reversedArray;
     }
 
     public void fillWithNumbers() {
@@ -68,9 +73,10 @@ public class IntArray {
     }
 
     public void reverse() {
+        reversedArray = new int[arrayForThisClass.length];
         for (int i = 0; i < arrayForThisClass.length; i++) {
-            swap(i, arrayForThisClass.length - i - 1);
-            System.out.println(arrayForThisClass[i] + " ");
+            reversedArray[arrayForThisClass.length - 1 - i] = arrayForThisClass[i];
+            // System.out.println(arrayForThisClass[i] + " ");
         }
     }
 
@@ -197,6 +203,10 @@ public class IntArray {
         System.out.println("Sum is: " + array.sum());
         System.out.println("Avg value is: " + array.avg());
 
+        System.out.println("Reversed Array is: ");
+        for (int arrayValue : array.getReversedToThisArray()) {
+            System.out.println(arrayValue + " ");
+        }
         System.out.print("Copied Array: ");
         for (int i = 0; i < copiedArray.getArray().length; i++) {
             System.out.print(copiedArray.getArray()[i] + " ");
