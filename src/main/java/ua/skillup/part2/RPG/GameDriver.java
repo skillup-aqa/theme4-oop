@@ -43,7 +43,7 @@ public class GameDriver {
             minusHealth = kicker.kickPower + kicker.kickPower / 2;
             kicked.setPoisoned(false);
         }
-        kicked.changeHealth(minusHealth);
+        kicked.decreaseHealth(minusHealth);
         if (kicker.unitName.equals("Archer")) {
             kicked.setPoisoned(true);
         }
@@ -54,7 +54,7 @@ public class GameDriver {
 
     public void kickSoldier(Ork kicker, Unit kicked) {
         int minusHealth = kicker.kickPower;
-        kicked.changeHealth(minusHealth);
+        kicked.decreaseHealth(minusHealth);
     }
 
     public void round() {

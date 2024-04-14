@@ -16,7 +16,7 @@ abstract public class Unit {
         System.out.println("Unit: " + unitName + " HP: " + healthPower + " KP: " + kickPower);
     }
 
-    final public void changeHealth(int minus) {
+    final public void decreaseHealth(int minus) {
         this.healthPower -= minus;
     }
 

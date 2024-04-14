@@ -11,19 +11,18 @@ public class Triangle extends Shape {
         this.a = a;
         this.b = b;
         this.c = c;
-        this.p = a + b + c;
 
     }
 
     @Override
     public double area() {
-        double halfP = p/2;
+        double halfP = perimeter()/2;
         return Math.sqrt((halfP * (halfP - a) * (halfP - b) * (halfP - c)));
 
     }
 
     @Override
     public double perimeter() {
-        return p;
+        return a + b + c;
     }
 }
