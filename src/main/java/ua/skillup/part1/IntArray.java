@@ -62,12 +62,9 @@ public class IntArray {
     }
 
     public void reverse() {
-        int[] reversedArray = new int[arrayForClass.length];
-        // reversedArray = new int[arrayForClass.length];
-        for (int i = 0; i < arrayForClass.length; i++) {
-            reversedArray[arrayForClass.length - 1 - i] = arrayForClass[i];
+        for (int i = 0; i<=arrayForClass.length/2; i++){
+            swap(i, arrayForClass.length-1-i);
         }
-        arrayForClass = reversedArray;
     }
 
     public IntArray copy() {
