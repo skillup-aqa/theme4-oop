@@ -3,6 +3,8 @@ package ua.skillup.part1;
 public class ComplexNumber {
     public ComplexNumber(double real, double imaginary) {
         // TODO: Implement constructor here
+        private double real;
+        private double imaginary;
     }
 
     public double getReal() {
