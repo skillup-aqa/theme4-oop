@@ -1,58 +1,61 @@
 package ua.skillup.part1;
 
+
 public class ComplexNumber {
+    private final double real;
+    private final double imaginary;
+
     public ComplexNumber(double real, double imaginary) {
-        // TODO: Implement constructor here
+        this.real = real;
+        this.imaginary = imaginary;
     }
 
     public double getReal() {
-        // TODO: Implement method here
-        return -1.0;
+
+        return real;
     }
 
     public double getImaginary() {
         // TODO: Implement method here
-        return -1.0;
+        return imaginary;
     }
 
     public double abs() {
-        // TODO: Implement method here
-        return -1.0;
+
+        return Math.sqrt(Math.pow(real, 2) + Math.pow(imaginary, 2));
     }
 
     public ComplexNumber add(ComplexNumber other) {
-        // TODO: Implement method here
-        return null;
+        return new ComplexNumber(real + other.real, imaginary + other.imaginary);
     }
 
     public ComplexNumber subtract(ComplexNumber other) {
-        // TODO: Implement method here
-        return null;
+        return new ComplexNumber(real - other.real, imaginary - other.imaginary);
     }
 
     public ComplexNumber multiply(ComplexNumber other) {
-        // TODO: Implement method here
-        return null;
+
+        return new ComplexNumber((real * other.real - imaginary * other.imaginary),
+                (real * other.imaginary + other.real * imaginary));
     }
 
     public ComplexNumber multiply(double factor) {
-        // TODO: Implement method here
-        return null;
+
+        return new ComplexNumber(real * factor, imaginary * factor);
     }
 
     public ComplexNumber divide(ComplexNumber other) {
-        // TODO: Implement method here
-        return null;
+        double denominator = Math.pow(other.real, 2) + Math.pow(other.imaginary, 2);
+        return new ComplexNumber((real * other.real + imaginary * other.imaginary) / denominator,
+                (imaginary * other.real - real * other.imaginary) / denominator);
     }
 
     public ComplexNumber divide(double divisor) {
-        // TODO: Implement method here
-        return null;
+        return new ComplexNumber(real / divisor, imaginary / divisor);
     }
 
     public ComplexNumber conjugate() {
-        // TODO: Implement method here
-        return null;
+        return new ComplexNumber(real, -imaginary);
     }
 
 }
