@@ -74,8 +74,8 @@ public class IntArray {
 
     public void reverse() {
         reversedArray = new int[arrayForThisClass.length];
-        for (int i = 0; i < arrayForThisClass.length; i++) {
-            reversedArray[arrayForThisClass.length - 1 - i] = arrayForThisClass[i];
+        for (int i = 0; i < arrayForThisClass.length / 2; i++) {
+          swap(i, arrayForThisClass.length - i - 1);
             // System.out.println(arrayForThisClass[i] + " ");
         }
     }
@@ -194,7 +194,6 @@ public class IntArray {
     public static void main(String[] args) {
         IntArray array = new IntArray(7);
         array.fillWithNumbers();
-        array.reverse();
         IntArray copiedArray = array.copy();
         IntArray newArray = new IntArray(7);
         newArray.removeDuplicates();
@@ -204,8 +203,9 @@ public class IntArray {
         System.out.println("Avg value is: " + array.avg());
 
         System.out.println("Reversed Array is: ");
-        for (int arrayValue : array.getReversedToThisArray()) {
-            System.out.println(arrayValue + " ");
+        array.reverse();
+        for (int arrayValue : array.getArray()) {
+           System.out.println(arrayValue + " ");
         }
         System.out.print("Copied Array: ");
         for (int i = 0; i < copiedArray.getArray().length; i++) {
