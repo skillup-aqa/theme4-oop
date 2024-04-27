@@ -13,10 +13,10 @@ public class Orc extends Personage {
     public void receiveDamageOf(int damage) {
         if (this.poisonStatus > 0) {
             System.out.println("Orc is poisoned! Health is decreasing twice faster!");
-            health -= damage * 2;
+            super.receiveDamageOf((int) Math.round(damage * 1.5));
+        } else {
+            super.receiveDamageOf(damage);
         }
-
-        super.receiveDamageOf(damage * 2);
     }
 
     @Override
